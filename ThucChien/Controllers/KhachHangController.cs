@@ -46,7 +46,7 @@ namespace ThucChien.Controllers
             lstTV = db.ThanhViens.OrderByDescending(n => n.TaiKhoan).ToList();
             return View(lstTV);
         }
-        /*protected override void Dispose(bool disposing)
+        protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
@@ -55,7 +55,7 @@ namespace ThucChien.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }*/
+        }
     }
 
 }
