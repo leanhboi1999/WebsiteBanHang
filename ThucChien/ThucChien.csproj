@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DemoJQueryController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -508,6 +509,9 @@
     <Content Include="Views\KhachHang\SortDuLieu.cshtml" />
     <Content Include="Views\KhachHang\TruyVan1DoiTuong.cshtml" />
     <Content Include="Views\Layout\HomeLayout.cshtml" />
+    <Content Include="Views\SanPham\SanPhamPartial.cshtml" />
+    <Content Include="Views\SanPham\SanPham1.cshtml" />
+    <Content Include="Views\SanPham\SanPham2.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

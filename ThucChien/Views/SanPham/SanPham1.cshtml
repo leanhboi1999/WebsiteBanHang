@@ -1,0 +1,29 @@
+﻿@using ThucChien.Models;
+@{
+    ViewBag.Title = "SanPham1";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+@{
+    IEnumerable<SanPham> lstSP = (IEnumerable<SanPham>)ViewBag.listSP;
+    IEnumerable<SanPham> lstDT = (IEnumerable<SanPham>) ViewBag.listDT;
+}
+
+@*Load Partial view, cách này load view, cần truyền model để view xử lý*@
+<div class="container">
+    <div class="content-top">
+        <h1>Laptop mới</h1>
+        @Html.Partial("SanPhamPartial", lstSP)
+    </div>
+</div>
+
+@*Load view sử dụng 1 data khác*@
+<div class="container">
+    <div class="content-top">
+        <h1>Điện thoại</h1>
+        @Html.Partial("SanPhamPartial", lstDT)
+    </div>
+</div>
+
+@*Cach 2, cái này load qua controller, model đã được xử lý*@
+@*Html.Action("SanPhamPartial")*@
