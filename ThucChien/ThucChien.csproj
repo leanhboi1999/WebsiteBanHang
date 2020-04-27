@@ -131,6 +131,7 @@
     <Compile Include="Controllers\DemoAjaxController.cs" />
     <Compile Include="Controllers\DemoCssController.cs" />
     <Compile Include="Controllers\DemoJQueryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Global.asax.cs">
@@ -519,6 +520,10 @@
     <Content Include="Views\DemoCss\Demo.cshtml" />
     <Content Include="Views\DemoAjax\DemoAjax.cshtml" />
     <Content Include="Views\DemoAjax\LoadSanPham.cshtml" />
+    <Content Include="Views\Home\MenuPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\SanPham\SanPhamStyle1Partial.cshtml" />
+    <Content Include="Views\SanPham\SanPhamStyle2Partial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

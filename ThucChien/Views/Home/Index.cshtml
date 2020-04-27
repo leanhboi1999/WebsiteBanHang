@@ -1,0 +1,31 @@
+﻿@using ThucChien.Models;
+@model IEnumerable<SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+@*Get data từ controller*@
+@{
+    IEnumerable<SanPham> lstDTM = (IEnumerable<SanPham>)ViewBag.ListDTM;
+    IEnumerable<SanPham> lstLTM = (IEnumerable<SanPham>)ViewBag.ListLT;
+    IEnumerable<SanPham> lstMTB = (IEnumerable<SanPham>)ViewBag.ListMTB;
+}
+
+@*Chuyển data điện thoại từ index sang partial*@
+<div class="container">
+    @Html.Partial("~/Views/SanPham/SanPhamStyle1Partial.cshtml", lstDTM)
+</div>
+
+@*Chuyển data laptop từ index sang partial*@
+<div class="container">
+    @Html.Partial("~/Views/SanPham/SanPhamStyle2Partial.cshtml", lstLTM)
+</div>
+
+@*Chuyển data máy tính bảng từ index sang partial*@
+<div class="container">
+    @Html.Partial("~/Views/SanPham/SanPhamStyle1Partial.cshtml", lstMTB)
+</div>
+
+
+

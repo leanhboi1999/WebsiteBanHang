@@ -1,0 +1,65 @@
+﻿@using ThucChien.Models;
+@model IEnumerable<SanPham>
+
+<div class="h_menu4">
+    <ul class="memenu skyblue">
+        <li class="showhide" style="display: none;"><span class="title">MENU</span><span class="icon1"></span><span class="icon2"></span></li>
+        <li class="active grid" style="display: inline;"><a class="color8" href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+        @foreach (var item in Model.GroupBy(n => n.LoaiSanPham))
+        {
+            if (item.Key != null)
+            {
+                <li style="display: inline;">
+                    <a class="color1" href="#">@item.Key.TenLoai</a>
+                    <div class="mepanel">
+                        <div class="row">
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <ul>
+                                        @foreach (var item2 in item.GroupBy(n => n.NhaSanXuat))
+                                        {
+                                            if (item2.Key != null)
+                                            {
+                                                <li><a href="#">@item2.Key.TenNSX</a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        }
+        <li class="grid" style="display: inline;">
+            <a class="color2" href="#">Thương hiệu</a>
+            <div class="mepanel">
+                <div class="row">
+                    @foreach (var item in Model.GroupBy(n => n.LoaiSanPham))
+                    {
+                        if (item.Key != null)
+                        {
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <h4>@item.Key.TenLoai</h4>
+                                    <ul>
+                                        @foreach (var item2 in item.GroupBy(n => n.NhaSanXuat))
+                                        {
+                                            if (item2.Key != null)
+                                            {
+                                                <li><a href="#">@item2.Key.TenNSX</a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </li>
+        <li style="display: inline;"><a class="color4" href="blog.html">Giới thiệu</a></li>
+        <li style="display: inline;"><a class="color6" href="contact.html">Liên hệ</a></li>
+    </ul>
+</div>
+
