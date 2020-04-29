@@ -7,7 +7,7 @@
         @foreach (var item in Model.Take(3))
         {
             <div class="col-md-4 grid-top">
-                <a href="single.html" class="b-link-stripe b-animate-go  thickbox">
+                <a href="@Url.Action("XemChiTiet", "SanPham", new {id = item.MaSP})" class="b-link-stripe b-animate-go  thickbox">
                     <img class="img-responsive" src="@Url.Content("~/Content/HinhAnhSP/"+item.HinhAnh)" alt="">
                     <div class="b-wrapper">
                         <h3 class="b-animate b-from-left b-delay03" style="text-align: left; font-size: 15pt;">
@@ -15,7 +15,7 @@
                         </h3>
                     </div>
                 </a>
-                <p><a href="single.html">@item.TenSP</a></p>
+                <p><a href="#">@item.TenSP</a></p>
             </div>
         }
         <div class="clearfix"> </div>

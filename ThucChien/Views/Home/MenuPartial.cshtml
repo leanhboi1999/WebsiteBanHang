@@ -20,7 +20,7 @@
                                         {
                                             if (item2.Key != null)
                                             {
-                                                <li><a href="#">@item2.Key.TenNSX</a></li>
+                                                <li><a href="@Url.Action("SanPham", "SanPham", new {@MaLoaiSP = item.Key.MaLoaiSP, @MaNSX = item2.Key.MaNSX})">@item2.Key.TenNSX</a></li>
                                             }
                                         }
                                     </ul>
@@ -47,7 +47,7 @@
                                         {
                                             if (item2.Key != null)
                                             {
-                                                <li><a href="#">@item2.Key.TenNSX</a></li>
+                                                <li><a href="@Url.Action("SanPham", "SanPham", new {@MaLoaiSP = item.Key.MaLoaiSP, @MaNSX = item2.Key.MaNSX})">@item2.Key.TenNSX</a></li>
                                             }
                                         }
                                     </ul>
