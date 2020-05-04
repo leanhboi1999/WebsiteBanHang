@@ -13,6 +13,20 @@ namespace ThucChien
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //Create link index of controller khachhang
+            routes.MapRoute(
+                name: "khachhang",
+                url: "khach-hang",
+                defaults: new { controller = "KhachHang", action = "Index", id = UrlParameter.Optional }
+            );
+
+            //Create link xemchitiet of controller sanpham
+            routes.MapRoute(
+                name: "XemChiTiet",
+                url: "{tensp}-{id}",
+                defaults: new {Controller = "SanPham", action= "XemChiTiet", id = UrlParameter.Optional}
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
