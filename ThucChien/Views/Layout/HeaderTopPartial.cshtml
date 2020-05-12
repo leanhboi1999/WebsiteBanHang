@@ -1,0 +1,112 @@
+﻿<div class="header-top">
+    <div class="container">
+        <div class="search">
+            <form>
+                <input type="text" value="Search " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                <input type="submit" value="Go">
+            </form>
+        </div>
+        <div class="header-left">
+            <ul>
+                <li style="display: inline;"><a id="btnDangNhap" class="lock" href="#">Đăng Nhập</a></li>
+                <li style="display: inline;"><a class="lock" href="register.html">Đăng Kí</a></li>
+
+            </ul>
+            <div class="cart box_1">
+                <a href="checkout.html">
+                    <h3>
+                        <div class="total">
+                            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
+                        </div>
+                        <img src="images/cart.png" alt="" />
+                    </h3>
+                </a>
+                <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<link href="~/Content/css/style_form_dangnhap.css" rel="stylesheet" />
+<div>
+    <br />
+    @*Tạo 1 div bên ngoài chứa div login-form *@
+    <div id="popup_login">
+        <div class="login-form" id="login-form">
+            <div style="clear:both;text-align:right;margin-bottom:0;">
+                <span id="close-form" class="btn btn-danger">X</span>
+            </div>
+            <h2>Đăng nhập</h2>
+            <form>
+                <input class="email TaiKhoan" placeholder="Tên đăng nhập" required="" type="text">
+                <input class="password MatKhau" placeholder="Mật khẩu" required="" type="password">
+                <p><a href="#">Quên mật khẩu?</a></p>
+                <ul class="login-buttons">
+                    <li><input value="Đăng nhập" type="submit" id="btnDangNhap1"></li>
+                    <li><a href="#" class="hvr-sweep-to-left">Đăng ký</a></li>
+
+                </ul>
+            </form>
+        </div>
+        </div>
+    </div>
+
+
+<style>
+
+    /*#btnDangNhap {
+        float: left;
+    }*/
+
+    .content {
+        height: 500px;
+    }
+
+    #close-form {
+        color: white;
+    }
+
+
+    #login-form {
+        background: #3a3a46;
+        cursor: pointer;
+    }
+    /*css cho phần div popup_login*/
+    #popup_login {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.5);
+        z-index: 99;
+        display: none;
+    }
+</style>
+@*Sử dụng jquery hiển thị popup đăng nhập*@
+<script type="text/javascript">
+    //Hiển thị popup_login
+    $("#btnDangNhap").click(function () {
+        $("#popup_login").show();
+    });
+    //Ẩn đi popup_login
+    $("#close-form").click(AnForm);
+
+    //Định nghĩa function ẩn form
+    function AnForm() {
+        $("#popup_login").hide();
+    }
+    //Ví dụ về lấy giá trị từ textbox
+    $("#btnDangNhap1").click(function () {
+        var TaiKhoan = $(".TaiKhoan").val();
+        var MatKhau = $(".MatKhau").val();
+        //alert("Tài khoản:" + TaiKhoan + "\n Mật khẩu:" + MatKhau);
+        if (TaiKhoan == "") {
+            alert("Lỗi");
+            return;
+        }
+    });
+
+</script>

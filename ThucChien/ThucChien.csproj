@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CaptchaMvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=fe46ad421dd3b0e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CaptchaMvc.Mvc5.1.5.0\lib\net45-full\CaptchaMvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -527,6 +530,8 @@
     <Content Include="Views\Layout\ProductLayout.cshtml" />
     <Content Include="Views\SanPham\XemChiTiet.cshtml" />
     <Content Include="Views\SanPham\SanPham.cshtml" />
+    <Content Include="Views\Home\DangKy.cshtml" />
+    <Content Include="Views\Layout\HeaderTopPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

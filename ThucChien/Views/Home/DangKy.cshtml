@@ -1,0 +1,64 @@
+﻿@using ThucChien.Models
+@using CaptchaMvc.HtmlHelpers
+@using CaptchaMvc
+@model ThanhVien
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Layout/ProductLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row register">
+        <h1>Đăng Ký Thành Viên</h1>
+        @using (Html.BeginForm()) {
+            <div class="col-md-6 register-top-grid">
+                <h3>Thông tin cá nhân</h3>
+                <div>
+                    <span>Tài khoản</span>
+                    @Html.TextBox("TaiKhoan")
+                </div>
+                <div>
+                    <span>Họ tên</span>
+                    @Html.TextBox("HoTen")
+                </div>
+                <div>
+                    <span>Địa chỉ</span>
+                    @Html.TextBox("DiaChi")
+                </div>
+                <div>
+                    <span>Email</span>
+                    @Html.TextBox("Email")
+                </div>
+                <div>
+                    <span>Số điện thoại</span>
+                    @Html.TextBox("SoDienThoai")
+                </div>
+                @*<div>
+                    <span>Câu hỏi bí mật</span>
+                    @Html.DropDownList("CauHoi")
+                </div>
+                <div>
+                    <span>Câu trả lời</span>
+                    @Html.TextBox("CauTraLoi")
+                </div>*@
+            </div>
+            <div class="col-md-6 register-top-grid">
+                <h3>Thông tin đăng nhập</h3>
+                <div>
+                    <span>Password</span>
+                    @Html.TextBox("MatKhau")
+                </div>
+                <div>
+                    <span>Confirm Password</span>
+                    @Html.TextBox("NhapLaiMatKhau")
+                </div>
+                <div>
+                    @Html.Captcha(5)
+                </div>
+                <input type="submit" value="Submit">
+            </div>
+            <div class="clearfix"> </div>
+        }
+    </div>
+</div>
+<h1 style="color: red;">@ViewBag.ThongBao</h1>

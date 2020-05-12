@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CaptchaMvc.HtmlHelpers;
 using ThucChien.Models;
+using CaptchaMvc;
 
 namespace ThucChien.Controllers
 {
@@ -39,5 +41,43 @@ namespace ThucChien.Controllers
             return PartialView(lstSP);
             //}
         }
+
+        [HttpGet]
+        public ActionResult DangKy()
+        {
+            //ViewBag.CauHoi = new SelectList(LoadCauHoi());
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DangKy(ThanhVien tv)
+        {
+            //ViewBag.CauHoi = new SelectList(LoadCauHoi());
+            //Kiểm tra captcha hợp lệ
+            if (this.IsCaptchaValid("Captcha is not valid"))
+            {
+                ViewBag.ThongBao = "Thêm thành công";
+                //Thêm khách hàng mới vào database
+                db.ThanhViens.Add(tv);
+                db.SaveChanges();
+                return View();
+            }
+
+            ViewBag.ThongBao = "Sai mã captcha";
+            return View();
+        }
+
+        //Action đăng nhập
+        //public ActionResult DangNhap()
+        //{
+
+        //    return RedirectToAction("Index");
+        //}
+
+        //public List<String> LoadCauHoi()
+        //{
+        //    List<String> lstCauHoi = new List<string>();
+        //    return lstCauHoi;
+        //}
     }
 }

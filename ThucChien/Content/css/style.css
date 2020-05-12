@@ -1316,11 +1316,11 @@ a.add-re:hover{
 }
 /*--register--*/
 .register h1{
-	font-size: 3em;
+    font-size: 3em;
   font-family: 'Lato', sans-serif;
   color: #000;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 1em;
 }
 .register-top-grid h3, .register-bottom-grid h3 {
