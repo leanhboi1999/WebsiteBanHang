@@ -56,23 +56,54 @@ namespace ThucChien.Controllers
             //Kiểm tra captcha hợp lệ
             if (this.IsCaptchaValid("Captcha is not valid"))
             {
-                ViewBag.ThongBao = "Thêm thành công";
-                //Thêm khách hàng mới vào database
-                db.ThanhViens.Add(tv);
-                db.SaveChanges();
-                return View();
-            }
+                if (ModelState.IsValid)
+                {
+                    ViewBag.ThongBao = "Thêm thành công";
+                    //Thêm khách hàng mới vào database
+                    db.ThanhViens.Add(tv);
+                    db.SaveChanges();
+                    return View();
+                }
 
+            }0
             ViewBag.ThongBao = "Sai mã captcha";
             return View();
         }
 
-        //Action đăng nhập
-        //public ActionResult DangNhap()
-        //{
+        [HttpGet]
+        public ActionResult DangKy1()
+        {
+            return View();
+        }
 
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost]
+        public ActionResult DangKy1(ThanhVien tv)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        //Action đăng nhập
+        public ActionResult DangNhap(FormCollection Form)
+        {
+            //Check pass và user
+            string User = Form["user"].ToString();
+            string Password = Form["password"].ToString();
+
+            ThanhVien tv = db.ThanhViens.SingleOrDefault(n => n.TaiKhoan == User && n.MatKhau == Password);
+            if (tv != null)
+            {
+                Session["taikhoan"] = tv;
+                return Content("<script>Windows.location.Reload</script>");
+            }
+            return Content("Tài khoản hoặc mật khẩu không đúng");
+        }
+
+        public ActionResult DangXuat()
+        {
+            Session["taikhoan"] = null;
+            return RedirectToAction("Index");
+        }
 
         //public List<String> LoadCauHoi()
         //{

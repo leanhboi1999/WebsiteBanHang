@@ -46,6 +46,11 @@ namespace ThucChien.Controllers
 
         public ActionResult SanPham(int? MaLoaiSP, int? MaNSX)
         {
+            //Check tài khoản đăng nhập hay chưa
+            //if (Session["taikhoan"] == null || Session["taikhoan"].ToString() == null)
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
             //Get sản phẩm theo 2 tiêu chí MaLoaiSP và MaNSX
             if (MaLoaiSP == null || MaNSX == null)
             {

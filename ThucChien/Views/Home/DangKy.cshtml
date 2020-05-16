@@ -7,19 +7,26 @@
     Layout = "~/Views/Layout/ProductLayout.cshtml";
 }
 
-<div class="container">
-    <div class="row register">
-        <h1>Đăng Ký Thành Viên</h1>
-        @using (Html.BeginForm()) {
-            <div class="col-md-6 register-top-grid">
+<div class="DangKy">
+    <div class="register">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <h1>Đăng kí thành viên</h1>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-md-5 register-top-grid">
                 <h3>Thông tin cá nhân</h3>
                 <div>
-                    <span>Tài khoản</span>
-                    @Html.TextBox("TaiKhoan")
+                    @Html.LabelFor(model => model.TaiKhoan)
+                    @Html.TextBoxFor(model => model.TaiKhoan)
+                    @Html.ValidationMessageFor(model => model.TaiKhoan)
                 </div>
                 <div>
                     <span>Họ tên</span>
-                    @Html.TextBox("HoTen")
+                    @Html.LabelFor(model => model.HoTen)
+                    @Html.TextBoxFor(model => model.HoTen)
+                    @Html.ValidationMessageFor(model => model.HoTen)
                 </div>
                 <div>
                     <span>Địa chỉ</span>
@@ -29,36 +36,35 @@
                     <span>Email</span>
                     @Html.TextBox("Email")
                 </div>
+            </div>
+            <div class="col-md-4 register-bottom-grid">
+                <h3>Thông tin đăng nhập</h3>
                 <div>
-                    <span>Số điện thoại</span>
-                    @Html.TextBox("SoDienThoai")
+                    <span>Mật khẩu</span>
+                    @Html.Password("MatKhau")
                 </div>
-                @*<div>
+                <div>
+                    <span>Nhập lại mật khẩu</span>
+                    @Html.Password("MatKhau")
+                </div>
+                <div>
                     <span>Câu hỏi bí mật</span>
                     @Html.DropDownList("CauHoi")
                 </div>
                 <div>
                     <span>Câu trả lời</span>
                     @Html.TextBox("CauTraLoi")
-                </div>*@
-            </div>
-            <div class="col-md-6 register-top-grid">
-                <h3>Thông tin đăng nhập</h3>
-                <div>
-                    <span>Password</span>
-                    @Html.TextBox("MatKhau")
                 </div>
                 <div>
-                    <span>Confirm Password</span>
-                    @Html.TextBox("NhapLaiMatKhau")
+                    @Html.MathCaptcha()
                 </div>
-                <div>
-                    @Html.Captcha(5)
-                </div>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Xác nhận">
             </div>
             <div class="clearfix"> </div>
+            <div>
+                <h1 style="color:red">@ViewBag.ThongBao</h1>
+            </div>
         }
+
     </div>
 </div>
-<h1 style="color: red;">@ViewBag.ThongBao</h1>

@@ -532,6 +532,7 @@
     <Content Include="Views\SanPham\SanPham.cshtml" />
     <Content Include="Views\Home\DangKy.cshtml" />
     <Content Include="Views\Layout\HeaderTopPartial.cshtml" />
+    <Content Include="Views\Home\DangKy1.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -568,7 +569,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54648</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:54648/</IISUrl>
+          <IISUrl>http://localhost:9328/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
