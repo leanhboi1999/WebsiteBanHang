@@ -65,7 +65,7 @@ namespace ThucChien.Controllers
                     return View();
                 }
 
-            }0
+            }
             ViewBag.ThongBao = "Sai mã captcha";
             return View();
         }
