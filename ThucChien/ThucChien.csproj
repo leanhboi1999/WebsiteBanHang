@@ -134,6 +134,7 @@
     <Compile Include="Controllers\DemoAjaxController.cs" />
     <Compile Include="Controllers\DemoCssController.cs" />
     <Compile Include="Controllers\DemoJQueryController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
@@ -535,6 +536,8 @@
     <Content Include="Views\Home\DangKy.cshtml" />
     <Content Include="Views\Layout\HeaderTopPartial.cshtml" />
     <Content Include="Views\Home\DangKy1.cshtml" />
+    <Content Include="Views\GioHang\XemGioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -13,26 +13,28 @@
                 {
                     ThanhVien tv = (ThanhVien)Session["taikhoan"];
                     <li>Chào @tv.TaiKhoan</li>
-                    @Html.ActionLink("DangXuat", "Home");
+                    @Html.ActionLink("Đăng xuất", "DangXuat", "Home");
                 }
                 else
                 {
                     <li style="display: inline;"><a id="btnDangNhap" class="lock" href="#">Đăng Nhập</a></li>
                     <li style="display: inline;"><a class="lock" href="register.html">Đăng Kí</a></li>
                 }
-            </ul> }
-            <div class="cart box_1">
-                <a href="checkout.html">
-                    <h3>
-                        <div class="total">
-                            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
-                        </div>
-                        <img src="images/cart.png" alt="" />
-                    </h3>
-                </a>
-                <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+            </ul>
+            @*Chuyển cái này thành partial view riêng, nhúng vào các trang còn lại*@
+            @Html.Action("GioHangPartial", "GioHang")
+            @*<div class="cart box_1">
+            <a href="checkout.html">
+                <h3>
+                    <div class="total">
+                        <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
+                    </div>
+                    <img src="images/cart.png" alt="" />
+                </h3>
+            </a>
+            <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
-            </div>
+        </div>*@
             <div class="clearfix"> </div>
         </div>
         <div class="clearfix"> </div>
@@ -48,13 +50,13 @@
                 <span id="close-form" class="btn btn-danger">X</span>
             </div>
             <h2>Đăng nhập</h2>
-            @using (Ajax.BeginForm("DangNhap", "Home", new AjaxOptions {InsertionMode = InsertionMode.Replace, UpdateTargetId = "thongbao"}))
+            @using (Ajax.BeginForm("DangNhap", "Home", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "thongbao" }))
             {
 
                 <input class="email TaiKhoan" placeholder="Tên đăng nhập" name="user" required="" type="text">
                 <input class="password MatKhau" placeholder="Mật khẩu" name="password" required="" type="password">
                 <p><a href="#">Quên mật khẩu?</a></p>
-                <h3 style="font-weight: bold; color: red;" id ="thongbao"></h3>
+                <h3 style="font-weight: bold; color: red;" id="thongbao"></h3>
                 <ul class="login-buttons">
                     <li><input value="Đăng nhập" type="submit" id="btnDangNhap1"></li>
                     <li><a href="#" class="hvr-sweep-to-left">Đăng ký</a></li>
