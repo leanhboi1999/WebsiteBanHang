@@ -18,12 +18,10 @@
             <div class="col-md-5 register-top-grid">
                 <h3>Thông tin cá nhân</h3>
                 <div>
-                    @Html.LabelFor(model => model.TaiKhoan)
                     @Html.TextBoxFor(model => model.TaiKhoan)
                     @Html.ValidationMessageFor(model => model.TaiKhoan)
                 </div>
                 <div>
-                    <span>Họ tên</span>
                     @Html.LabelFor(model => model.HoTen)
                     @Html.TextBoxFor(model => model.HoTen)
                     @Html.ValidationMessageFor(model => model.HoTen)

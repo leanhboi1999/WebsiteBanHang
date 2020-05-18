@@ -152,6 +152,7 @@
     <Compile Include="Models\DonDatHang.cs">
       <DependentUpon>QuanLyBanHang.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\KhachHang.cs">
       <DependentUpon>QuanLyBanHang.tt</DependentUpon>
     </Compile>
@@ -164,6 +165,7 @@
     <Compile Include="Models\LoaiThanhVien_Quyen.cs">
       <DependentUpon>QuanLyBanHang.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Metadata\ThanhVien.cs" />
     <Compile Include="Models\NhaCungCap.cs">
       <DependentUpon>QuanLyBanHang.tt</DependentUpon>
     </Compile>
