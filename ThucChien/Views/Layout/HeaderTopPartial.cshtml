@@ -11,7 +11,7 @@
             <ul>
                 @if (Session["taikhoan"] != null && Session["taikhoan"] != "")
                 {
-                    ThanhVien tv = (ThanhVien)Session["taikhoan"];
+                    ThanhVien tv = (ThanhVien) Session["taikhoan"];
                     <li>Chào @tv.TaiKhoan</li>
                     @Html.ActionLink("Đăng xuất", "DangXuat", "Home");
                 }
