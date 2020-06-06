@@ -1,0 +1,67 @@
+﻿@using ThucChien.Models;
+@model ItemGioHang
+@{
+    ViewBag.Title = "SuaGioHang";
+    Layout = "~/Views/Layout/ProductLayout.cshtml";
+}
+@{
+    List<ItemGioHang> lstGioHang = ViewBag.GioHang as List<ItemGioHang>;
+}
+<table class="table">
+    <tr>
+        <td>Mã Sản Phẩm</td>
+        <td>Tên Sản Phẩm</td>
+        <td>Hình ảnh</td>
+        <td>Số lượng</td>
+        <td>Đơn Giá</td>
+        <td>Thành tiền</td>
+    </tr>
+    @foreach (var item in lstGioHang)
+    {
+        //Sản phẩm có mã sản phẩm được chỉnh sửa gửi từ tham số bên trong giỏ hàng
+        if (Model.MaSP == item.MaSP)
+        {
+            using (Html.BeginForm("CapNhatGioHang", "GioHang"))
+            {
+                <tr>
+                    <td>@item.MaSP @Html.Hidden("MaSP", item.MaSP)</td>
+                    <td>@item.TenSP</td>
+                    <td><img src=" @Url.Content("~/Content/HinhAnhSP" + item.HinhAnh)" width="50px" height="50px" /></td>
+                    <td>@Html.TextBox("SoLuong", item.SoLuong, new { @class = "SoLuongThayDoi" })</td>
+                    <p id="ThongBaoThayDoi"></p>
+                    <td>@item.DonGia.ToString("#,##") đồng</td>
+                    <td>@item.ThanhTien.ToString("#,##")  đồng</td>
+                    <td>
+                        <input type="submit" value="Cập nhật" id="CapNhatGioHang" />
+                        @Html.ActionLink("Xóa", "XoaGioHang", "GioHang")
+                    </td>
+                </tr>
+
+            }
+        }
+        else
+        {
+            <tr>
+                <td>@item.MaSP</td>
+                <td>@item.TenSP</td>
+                <td><img src=" @Url.Content("~/Content/HinhAnhSP"+item.HinhAnh)" width="50px" height="50px" /></td>
+                <td>@item.SoLuong</td>
+                <td>@item.DonGia.ToString("#,##") đồng</td>
+                <td>@item.ThanhTien.ToString("#,##")</td>
+                <td>@Html.ActionLink("Sửa", "SuaGioHang", "GioHang", new { @MaSP = item.MaSP })</td>
+                <td>@Html.ActionLink("Xóa", "XoaGioHang", "GioHang", new { @MaSP = item.MaSP })</td>
+            </tr>
+        }
+    }
+</table>
+@*Kiểm tra số lương cập nhật hợp lệ về ngữ pháp*@
+<script>
+    $("#CapNhatGioHang").click(function() {
+        //Kiểm tra nó không phải là số hoặc nhỏ hơn không
+        var soluong = $(".SoLuongThayDoi").val();
+        if (isNaN(soluong) == true || soluong < 0) {
+            $("#ThongBaoThayDoi").text("Số lượng không hợp lệ");
+            return false;
+        }
+    })
+</script>

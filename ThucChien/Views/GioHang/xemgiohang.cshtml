@@ -4,31 +4,119 @@
     ViewBag.Title = "Xem Gio Hang";
     Layout = "~/Views/Layout/ProductLayout.cshtml";
 }
-@if (Model == null)
+@if (Model == null && Model.Count <= 0)
 {
     <h1>Giỏ hàng rỗng</h1>
 }
 else
 {
-<table class="table">
-    <tr>
-        <td>Mã Sản Phẩm</td>
-        <td>Tên Sản Phẩm</td>
-        <td>Hình ảnh</td>
-        <td>Số lượng</td>
-        <td>Đơn Giá</td>
-        <td>Thành tiền</td>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>@item.MaSP</tr>
-        <tr>@item.TenSP</tr>
-        <tr><img src=" @Url.Content("~/Content/HinhAnhSP"+item.HinhAnh)" width="50px" height="50px"/></tr>
-        <tr>@item.SoLuong</tr>
-        <tr>@item.DonGia.ToString("#,##") đồng</tr>
-        <tr>@item.ThanhTien.ToString("#,##")</tr>
-    }
-</table>
+    <div class="col-md-9 product1">
+        <h1 style="color: red; text-align: center; font-weight: bold">GIỎ HÀNG</h1>
+        <table class="table">
+            <tr>
+                <td>Mã Sản Phẩm</td>
+                <td>Tên Sản Phẩm</td>
+                <td>Hình ảnh</td>
+                <td>Số lượng</td>
+                <td>Đơn Giá</td>
+                <td>Thành tiền</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaSP</td>
+                    <td>@item.TenSP</td>
+                    <td><img src=" @Url.Content("~/Content/HinhAnhSP" + item.HinhAnh)" width="50px" height="50px" /></td>
+                    <td>@item.SoLuong</td>
+                    <td>@item.DonGia.ToString("#,##") đồng</td>
+                    <td>@item.ThanhTien.ToString("#,##")</td>
+                    <td>@Html.ActionLink("Sửa", "SuaGioHang", "GioHang", new { @MaSP = item.MaSP })</td>
+                    <td>@Html.ActionLink("Xoa", "XoaGioHang", "GioHang", new { @MaSP = item.MaSP })</td>
+                </tr>
+            }
+        </table>
+
+        @using (Html.BeginForm("DatHang", "GioHang"))
+        {
+            if (Session["TaiKhoan"] == null)
+            {
+                <div class="ThongTinMuaHang">
+                    <table align="center" class="table">
+                        <tr>
+                            <td align="center">Thông tin khách hàng</td>
+
+                        </tr>
+                        <tr>
+                            <td>Họ tên</td>
+                            <td>
+                                @Html.TextBox("TenKH")
+                                <p style="color: red" id="TB_TenKH"></p>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ</td>
+                            <td>
+                                @Html.TextArea("DiaChi")
+                                <span style="color: red" id="TB_DiaChi"></span>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                @Html.TextBox("Email")
+                                <p style="color: red" id="ktEmail"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại</td>
+                            <td>
+                                @Html.TextBox("SoDienThoai")
+                                <p style="color: red" id="TB_SoDienThoai"></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            }
+
+            <div class="divDatHang" style="text-align: right;">
+                <input type="submit" value="Đặt Hàng" class="btn btn-success" id="btnDatHang" />
+                @Html.ActionLink("Mua Tiếp", "Index", "Home")
+
+            </div>
+        }
+    </div>
 }
+@*Kiểm tra thông qua jquery*@
+<script>
+    $("#btnnDatHang").click(function () {
+        var loi = 0;
+        if ($("#TenKH").val() == "") {
+            $("#TB_TenKH").text("Tên khách hàng không được bỏ trống")
+            loi++;
+        }
+        else {
+            $("#TB_TenKH").text("");
+        }
 
+        if ($("#DiaChi").val() == "") {
+            $("#TB_DiaChi").text("Địa chỉ không được bỏ trống")
+            loi++;
+        }
+        else {
+            $("#TB_DiaChi").text("");
+        }
 
+        if ($("#SoDienThoai").val() == "") {
+            $("#SoDienThoai").text("Số điện thoại không được bỏ trống")
+            loi++;
+        }
+        else {
+            $("#TB_SoDienThoai").text("");
+        }
+        if (loi != 0) {
+            return false; //ngăn submit
+        }
+    });
+</script>

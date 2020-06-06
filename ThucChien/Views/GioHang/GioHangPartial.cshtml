@@ -1,5 +1,5 @@
 ﻿@* Dùng ViewBag để truyền dữ liệu tiền và số lượng *@
-<div class="cart box_1">
+<div class="cart box_1" id="divGioHang">
     <a href="@Url.Action("XemGioHang", "GioHang")">
         <h3>
             <div class="total">
@@ -8,5 +8,5 @@
             <img src="/Content/images/cart.png" alt="" />
         </h3>
     </a>
-    <p><a href="@Url.Action("XemGioHang", "GioHang")" class="simpleCart_quantity">Giỏ Hàng</a></p>
+    <p><a href="@Url.Action("XemGioHang", "GioHang")" class="simpleCart_empty">Giỏ Hàng</a></p>
 </div>

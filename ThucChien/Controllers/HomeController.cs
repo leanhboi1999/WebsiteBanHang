@@ -12,7 +12,7 @@ namespace ThucChien.Controllers
     public class HomeController : Controller
     {
         QuanLyBanHangEntities db = new QuanLyBanHangEntities();
-
+               
         // GET: Home
         public ActionResult Index()
         {
@@ -93,7 +93,7 @@ namespace ThucChien.Controllers
             ThanhVien tv = db.ThanhViens.SingleOrDefault(n => n.TaiKhoan == User && n.MatKhau == Password);
             if (tv != null)
             {
-                Session["taikhoan"] = tv;
+                Session["TaiKhoan"] = tv;
                 return Content("<script>Windows.location.Reload</script>");
             }
             return Content("Tài khoản hoặc mật khẩu không đúng");
@@ -101,7 +101,7 @@ namespace ThucChien.Controllers
 
         public ActionResult DangXuat()
         {
-            Session["taikhoan"] = null;
+            Session["TaiKhoan"] = null;
             return RedirectToAction("Index");
         }
 
