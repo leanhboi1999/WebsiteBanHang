@@ -1,0 +1,12 @@
+﻿@using ThucChien.Models
+@model IEnumerable<SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+    //Khởi tạo controll WebGird
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
+}
+
+<h2>Index</h2>
+

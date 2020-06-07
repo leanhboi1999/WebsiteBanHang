@@ -137,12 +137,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DemoAjaxController.cs" />
     <Compile Include="Controllers\DemoCssController.cs" />
     <Compile Include="Controllers\DemoJQueryController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\QuanLySanPhamController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
@@ -214,6 +216,39 @@
     <Content Include="App_Data\QuanLyBanHang_log.ldf">
       <DependentUpon>QuanLyBanHang.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\AdminLayouts\css\bootstrap.css" />
+    <Content Include="Content\AdminLayouts\css\clndr.css" />
+    <Content Include="Content\AdminLayouts\css\jqvmap.css" />
+    <Content Include="Content\AdminLayouts\css\nav.css" />
+    <Content Include="Content\AdminLayouts\css\style.css" />
+    <Content Include="Content\AdminLayouts\images\ar2.png" />
+    <Content Include="Content\AdminLayouts\images\arrows.png" />
+    <Content Include="Content\AdminLayouts\images\avatar.jpg" />
+    <Content Include="Content\AdminLayouts\images\avatar1.jpg" />
+    <Content Include="Content\AdminLayouts\images\avatar2.jpg" />
+    <Content Include="Content\AdminLayouts\images\img-sprite.png" />
+    <Content Include="Content\AdminLayouts\images\into.png" />
+    <Content Include="Content\AdminLayouts\images\into1.png" />
+    <Content Include="Content\AdminLayouts\images\logo.png" />
+    <Content Include="Content\AdminLayouts\images\pp.jpg" />
+    <Content Include="Content\AdminLayouts\images\pp0.jpg" />
+    <Content Include="Content\AdminLayouts\images\pp01.jpg" />
+    <Content Include="Content\AdminLayouts\images\settings.png" />
+    <Content Include="Content\AdminLayouts\images\tick-mark.png" />
+    <Content Include="Content\AdminLayouts\index.html" />
+    <Content Include="Content\AdminLayouts\js\Chart1.js" />
+    <Content Include="Content\AdminLayouts\js\clndr.js" />
+    <Content Include="Content\AdminLayouts\js\easyResponsiveTabs.js" />
+    <Content Include="Content\AdminLayouts\js\jquery.easydropdown.js" />
+    <Content Include="Content\AdminLayouts\js\jquery.min.js" />
+    <Content Include="Content\AdminLayouts\js\jquery.nicescroll.js" />
+    <Content Include="Content\AdminLayouts\js\jquery.vmap.js" />
+    <Content Include="Content\AdminLayouts\js\jquery.vmap.sampledata.js" />
+    <Content Include="Content\AdminLayouts\js\jquery.vmap.world.js" />
+    <Content Include="Content\AdminLayouts\js\main.js" />
+    <Content Include="Content\AdminLayouts\js\moment-2.2.1.js" />
+    <Content Include="Content\AdminLayouts\js\site.js" />
+    <Content Include="Content\AdminLayouts\js\underscore-min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -550,6 +585,9 @@
     <Content Include="Views\GioHang\SuaGioHang.cshtml" />
     <Content Include="Views\TimKiem\KQTimKiem.cshtml" />
     <Content Include="Views\TimKiem\KQTimKiemPartial.cshtml" />
+    <Content Include="Views\Layout\AdminLayout.cshtml" />
+    <Content Include="Views\Admin\AdminDashboard.cshtml" />
+    <Content Include="Views\QuanLySanPham\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
