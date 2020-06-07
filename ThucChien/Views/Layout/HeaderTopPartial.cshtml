@@ -2,16 +2,18 @@
 <div class="header-top">
     <div class="container">
         <div class="search">
-            <form>
-                <input type="text" value="Search " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-                <input type="submit" value="Go">
-            </form>
+            @*Tạo form submit về action Tìm Kiếm*@
+            @using (Html.BeginForm("LayTuKhoaTimKiem", "TimKiem"))
+             {
+                <input type="text" name="sTuKhoa" placeholder="Nhập từ khóa cần tìm" />
+                <input type="submit" value="Go" />
+             }
         </div>
         <div class="header-left">
             <ul>
                 @if (Session["taikhoan"] != null && Session["taikhoan"] != "")
                 {
-                    ThanhVien tv = (ThanhVien) Session["taikhoan"];
+                    ThanhVien tv = (ThanhVien)Session["taikhoan"];
                     <li>Chào @tv.TaiKhoan</li>
                     @Html.ActionLink("Đăng xuất", "DangXuat", "Home");
                 }
@@ -24,17 +26,17 @@
             @*Chuyển cái này thành partial view riêng, nhúng vào các trang còn lại*@
             @Html.Action("GioHangPartial", "GioHang")
             @*<div class="cart box_1">
-            <a href="checkout.html">
-                <h3>
-                    <div class="total">
-                        <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
-                    </div>
-                    <img src="images/cart.png" alt="" />
-                </h3>
-            </a>
-            <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                    <a href="checkout.html">
+                        <h3>
+                            <div class="total">
+                                <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
+                            </div>
+                            <img src="images/cart.png" alt="" />
+                        </h3>
+                    </a>
+                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
-        </div>*@
+                </div>*@
             <div class="clearfix"> </div>
         </div>
         <div class="clearfix"> </div>

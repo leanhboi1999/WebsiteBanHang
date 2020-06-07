@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ThucChien.Models;
+using PagedList;
 
 namespace ThucChien.Controllers
 {
@@ -44,7 +45,7 @@ namespace ThucChien.Controllers
             return View(sp);
         }
 
-        public ActionResult SanPham(int? MaLoaiSP, int? MaNSX)
+        public ActionResult SanPham(int? MaLoaiSP, int? MaNSX, int? page)
         {
             //Check tài khoản đăng nhập hay chưa
             //if (Session["taikhoan"] == null || Session["taikhoan"].ToString() == null)
@@ -62,7 +63,20 @@ namespace ThucChien.Controllers
                 //Thông báo nếu không có sản phẩm đó
                 return HttpNotFound();
             }
-            return View(lstSP);
+
+            if (Request.HttpMethod != "GET")
+            {
+                page = 1;
+            }
+            //Thực hiện chức năng phân trang
+            //Tạo biến số sản phẩm trên trang
+            int PageSize = 6;
+            //Tạo biến ghi số page hiện tại
+            int PageNumber = (page ?? 1);
+            ViewBag.MaLoaiSP = MaLoaiSP;
+            ViewBag.MaNSX = MaNSX;
+
+            return View(lstSP.OrderBy(n => n.MaSP).ToPagedList(PageNumber, PageSize));
         }
 
         //public ActionResult SanPham1()
