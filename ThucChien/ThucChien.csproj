@@ -588,6 +588,7 @@
     <Content Include="Views\Layout\AdminLayout.cshtml" />
     <Content Include="Views\Admin\AdminDashboard.cshtml" />
     <Content Include="Views\QuanLySanPham\Index.cshtml" />
+    <Content Include="Views\QuanLySanPham\TaoMoi.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
